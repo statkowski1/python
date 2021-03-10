@@ -1,0 +1,77 @@
+#zad1
+lista_z_ulubionymi_filmami = ['film1', 'film2', 'film3', 'film4', 'film5', 'film6', 'film7']
+print(lista_z_ulubionymi_filmami)
+lista_z_ulubionymi_filmami.reverse()
+print(lista_z_ulubionymi_filmami)
+lista_z_ulubionymi_filmami.insert(5, 'film8')
+lista_z_ulubionymi_filmami.insert(5, 'film9')
+lista_z_ulubionymi_filmami.insert(5, 'film10')
+print(lista_z_ulubionymi_filmami)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad2
+slownik_z_filmami = {7: 'fiml7', 6: 'film6', 5: 'film5', 4: 'film4', 3: 'film3', 10: 'film10', 9: 'film9', 8: 'film8', 2: 'film2', 1: 'film1'}
+print(slownik_z_filmami)
+print(slownik_z_filmami[3])
+-------------------------------------------------------------------------------------------------------------------------------
+#zad3
+przedmioty = {'CAD': 'CAD komputerowe wspomaganie programowania', 'PS': 'Programowanie strukturalne', 'E': 'Etyka', 'A': 'Język Angielski', 'Am': 'Analiza matematyczna', 'WD': 'Wizualizacja Danych', 'MD': 'Matematyka Dyskretna'}
+ilosc_elementow = len(przedmioty)
+print(ilosc_elementow)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad4
+a = input('wprowadź liczbę dowolnego typu: ')
+a = float(a)
+b = a**a
+print(b)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad5
+import sys as system
+system.stdout.write("wprowadź dowolny ciąg znaków: ")
+a = system.stdin.readline()
+b = a.count('a')
+print(b)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad6
+a = input('wprowadź liczbę a: ')
+b = input('wprowadź liczbę b: ')
+c = input('wprowadź liczbę c: ')
+a = int(a)
+b = int(b)
+c = int(c)
+if (a%2 == 0) & (b > c):
+    print('liczba a jest parzysta oraz liczba b jest większa od liczby c')
+else:
+    print('liczba a nie jest parzysta lub liczba b nie jest większa od liczby c')
+-------------------------------------------------------------------------------------------------------------------------------
+#zad7
+lista = [1, 5, 3, 3.7, 7, 3.9, 2.7, 6.1, 5, 3, 7, 9, 0, 1.2, 2, 5.3]
+i = 0
+for x in lista:
+    x = lista[i] + lista[i+1]
+    print(x)
+    i = i + 1
+-------------------------------------------------------------------------------------------------------------------------------
+#zad8
+lista = []
+a = 0
+while a != 10:
+    a = a + 1
+    b = float(input('Podaj liczbe: '))
+    if b % 1 == 0:
+        lista.append(b)
+print(lista)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad9
+lista = [1, 2, 3, 4, 5, 6]
+for x in lista:
+    if(x == 1)|(x == 6):
+        print('O' * 6)
+    else:
+        print('O' + ' ' * 4 + 'O')
+-------------------------------------------------------------------------------------------------------------------------------
+#zad10
+try:
+    a = float(input('Podaj liczbę: '))
+    print(a)
+except ValueError:
+    print('To nie jest liczba!')
