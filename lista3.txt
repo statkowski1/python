@@ -1,0 +1,108 @@
+#zad1
+a = [1-x for x in range(1, 11)]
+print(a)
+b = [4**x for x in range(8)]
+print(b)
+c = [x for x in b if x % 2 == 0]
+print(c)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad2
+import random
+lista1 = []
+for x in range(10):
+    lista1.append(random.randint(0, 1000))
+print(lista1)
+lista2 = []
+for x in lista1:
+    if x % 2 == 0:
+        lista2.append(x)
+print(lista2)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad3
+slownik_z_produktami_spozywczymi_do_kupienia = {'truskawki': 'kg', 'arbuzy': 'szt', 'jajka': 'szt', 'mleko': 'l', 'ser': 'kg', 'kostka masła': 'szt', 'ryż': 'kg', 'woda': 'l', 'melony': 'szt', 'orzechy': 'kg', 'bułka': 'szt', 'sok jabłkowy': 'l', 'pistacje': 'kg', 'chleb': 'szt'}
+lista = []
+for key, value in slownik_z_produktami_spozywczymi_do_kupienia.items():
+    if value == 'szt':
+        lista.append(key)
+print(lista)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad4
+def czy_trojkat_prostokatny(a, b, c):
+    a2 = a * a
+    b2 = b * b
+    c2 = c * c
+    ab2 = a2 + b2
+    ac2 = a2 + c2
+    bc2 = b2 + c2
+    if (ab2 == c2)|(ac2 == b2)|(bc2 == a2):
+        print('Trojkat jest prostokatny')
+    else:
+        print('Trojkat nie jest prostokatny')
+czy_trojkat_prostokatny(3, 4, 5)
+czy_trojkat_prostokatny(1, 1, 2)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad5
+def oblicz_pole_trapezu(a = 1, b = 1, h = 1):
+    P = (a + b)*h/2
+    return P
+print(oblicz_pole_trapezu(2, 4, 5))
+print(oblicz_pole_trapezu(2, 4))
+print(oblicz_pole_trapezu(b = 4, h = 5))
+-------------------------------------------------------------------------------------------------------------------------------
+#zad6
+def ciag(a1 = 1, b = 4, ile = 10):
+    ciag = []
+    z = 1
+    for x in range(ile):
+        ciag.append(a1*z)
+        z = z * b
+    wynik = 1
+    for x in ciag:
+        wynik *= x
+    return wynik
+print(ciag())
+-------------------------------------------------------------------------------------------------------------------------------
+#zad7
+def ciag(*liczby):
+    wynik = 1
+    for x in liczby:
+        wynik *= x
+    return wynik
+print(ciag(2, 3, 5))
+-------------------------------------------------------------------------------------------------------------------------------
+#zad8
+def lista_zakupow(**produkty):
+    x = len(produkty)
+    y = 0
+    for key, value in produkty.items():
+        y += value
+    print('Ilość produktów: ', x)
+    print('Cena wszystkich produktów', y)
+lista_zakupow(karton_mleka = 4, baton = 3, czekolada = 10, chleb = 2.5, marmolada = 8, taśma_klejąca = 6.35, farba_biała = 25.41)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad9
+#w pliku ciągi
+def ciag_arytmetyczny(a1, n, r):
+    an = a1 + (n - 1) * r
+    Sn = ((a1 + an) / 2) * n
+    print('Pierwszy wyraz ciągu a1 = ', a1)
+    print('Długość ciągu n = ', n)
+    print('Różnica wyrazów ciągu r = ', r)
+    print('Wartość n-tego wyrazu ciągu arytmetycznego an = ', an)
+    print('Suma n pierwszych wyrazów ciągu arytmetycznego Sn = ', Sn)
+def ciag_geometryczny(a1, n, q):
+    an = a1 * q**(n - 1)
+    if q == 1:
+        Sn = a1 * n
+    else:
+        Sn = a1 * ((1 - q**n) / (1 - q))
+    print('Pierwszy wyraz ciagu a1 = ', a1)
+    print('Długość ciągu n = ', n)
+    print('Iloraz ciągu geometrycznego q = ', q)
+    print('Wartość n-tego wyrazu ciągu geometrycznego an = ', an)
+    print('Suma n pierwszych wyrazów ciągu geometrycznego Sn = ', Sn)
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#w pluku main
+from teksty.ciągi import *
+ciag_arytmetyczny(2, 3, 1)
+ciag_geometryczny(3, 4, 2)
