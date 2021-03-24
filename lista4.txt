@@ -1,0 +1,111 @@
+#zad1
+import random
+lista1 = []
+lista2 = []
+for x in range(10):
+    lista1.append(random.randint(0, 30))
+print(lista1)
+for x in lista1:
+    x = x * 2
+    lista2.append(x)
+print(lista2)
+
+plik = open('dane.txt', 'a+')
+plik.writelines(str(lista2))
+plik.close()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad2
+with open('dane.txt', 'r') as plik:
+    for linia in plik:
+        print(linia, end='')
+-------------------------------------------------------------------------------------------------------------------------------
+#zad3
+with open('text.txt', 'r') as plik:
+    for linia in plik:
+        print(linia, end='')
+-------------------------------------------------------------------------------------------------------------------------------
+#zad4
+class NaZakupy:
+    nazwa_produktu = 'Arbuz'
+    ilosc = 5
+    jednostka_miary = 'szt'
+    cena_jed = 12
+    def wyswietl_produkt(self):
+        print('Nazwa produktu: ', self.nazwa_produktu)
+        print('Ilość produktu: ', self.ilosc)
+        print('Jednostka miary: ', self.jednostka_miary)
+        print('Cena: ', self.cena_jed, 'za: ', self.jednostka_miary)
+    def ile_produktu(self):
+        return 'Ilość produktu: ' + str(self.ilosc) + str(self.jednostka_miary)
+    def ile_kosztuje(self):
+        koszt = self.ilosc * self.cena_jed
+        return koszt
+obiekt = NaZakupy()
+obiekt.wyswietl_produkt()
+print(obiekt.ile_produktu())
+print('Wszyskie produkty kosztują: ', obiekt.ile_kosztuje())
+-------------------------------------------------------------------------------------------------------------------------------
+#zad5
+class CiagiArytmetyczne:
+    def __init__(self, a1, n, r):
+        self.a1 = a1
+        self.n = n
+        self.r = r
+    def pobierz_elementy(self):
+        an = self.a1 + (self.n - 1) * self.r
+        return an
+    def pobierz_parametry(self):
+        self.a1 = int(input('Podaj wyraz pierwszy: '))
+        self.n = int(input('Podaj liczbę elementów: '))
+        self.r = int(input('Podaj różnice ciągu: '))
+    def policz_sume(self):
+        Sn = ((self.a1 + self.an) / 2) * self.n
+        return Sn
+    def policz_elementy(self):
+        i = 2
+        az = self.a1 + self.r
+        print('a1 = ', self.a1)
+        for x in range(self.n):
+            print('a' + str(i) + ' = ' + str(az))
+            az += self.r
+            i = i + 1
+obiekt = CiagiArytmetyczne(1, 1, 1)
+obiekt.pobierz_parametry()
+obiekt.policz_elementy()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad6
+class Robaczek:
+    def __init__(self, x = 0, y = 0, krok = 0):
+        self.x = x
+        self.y = y
+        self.krok = krok
+    def idz_w_gore(self, ile_krokow):
+        for z in range(ile_krokow):
+            self.y = self.y + 1
+            self.krok = self.krok + 1
+        return self.y
+    def idz_w_dol(self, ile_krokow):
+        for z in range(ile_krokow):
+            self.y = self.y - 1
+            self.krok = self.krok + 1
+        return self.y
+    def idz_w_lewo(self, ile_krokow):
+        for z in range(ile_krokow):
+            self.x = self.x - 1
+            self.krok = self.krok + 1
+        return self.x
+    def idz_w_prawo(self, ile_krokow):
+        for z in range(ile_krokow):
+            self.x = self.x + 1
+            self.krok = self.krok + 1
+        return self.x
+    def pokaz_gdzie_jestes(self):
+        print('x = ', self.x)
+        print('y = ', self.y)
+        print('Liczba kroków = ', self.krok)
+obiekt = Robaczek(krok = 5)
+print(obiekt.idz_w_gore(1))
+print(obiekt.idz_w_prawo(4))
+print(obiekt.idz_w_dol(30))
+print(obiekt.idz_w_lewo(12))
+obiekt.pokaz_gdzie_jestes()
