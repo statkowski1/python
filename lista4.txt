@@ -15,9 +15,10 @@ plik.writelines(str(lista2))
 plik.close()
 -------------------------------------------------------------------------------------------------------------------------------
 #zad2
-with open('dane.txt', 'r') as plik:
-    for linia in plik:
-        print(linia, end='')
+plik = open('dane.txt', 'r')
+wyswietl = plik.read()
+print(wyswietl)
+plik.close()
 -------------------------------------------------------------------------------------------------------------------------------
 #zad3
 with open('text.txt', 'r') as plik:
