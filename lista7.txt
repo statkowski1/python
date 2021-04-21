@@ -1,0 +1,118 @@
+#zad1
+import numpy as np
+A = np.array([3, 4, 5])
+B = np.array([6, 7, 8])
+print(A)
+print(B)
+print(A*B)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad2
+import numpy as np
+A = np.arange(9).reshape(3, 3)
+B = np.arange(16).reshape(4, 4)
+print(A)
+print(B)
+print('')
+print(A.min(axis=0))
+print(A.min(axis=1))
+print(B.min(axis=0))
+print(B.min(axis=1))
+-------------------------------------------------------------------------------------------------------------------------------
+#zad3
+import numpy as np
+A = np.array([3, 4 ,5])
+B = np.array([6, 7, 8])
+print(A)
+print(B)
+print(np.dot(A, B))
+C = np.array([[2, 1, 3], [-1, 2, 4]])
+D = np.array([[1, 3], [2, -2], [-1, 4]])
+print(np.dot(C, D))
+-------------------------------------------------------------------------------------------------------------------------------
+#zad4
+import numpy as np
+A = np.array([1, 3, 9])
+B = np.array([-4.5, 1.3, -8.9])
+print(A*B)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad5
+import numpy as np
+a = np.sin(np.array((0, 30, 45, 60, 90)) * np.pi/180).reshape(2, 3)
+print(a)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad6
+import numpy as np
+b = np.cos(np.array((0, 30, 45, 60, 90, 180)) * np.pi/180).reshape(2, 3)
+print(b)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad7
+import numpy as np
+a = np.sin(np.array((0, 30, 45, 60, 90, 180)) * np.pi/180).reshape(2, 3)
+print(a)
+b = np.cos(np.array((0, 30, 45, 60, 90, 180)) * np.pi/180).reshape(2, 3)
+print(b)
+print('')
+c = np.add(a, b)
+print(c)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad8
+import numpy as np
+a = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9]).reshape(3, 3)
+print(a)
+print('')
+for x in a:
+    print(x)
+    print('')
+-------------------------------------------------------------------------------------------------------------------------------
+#zad9
+import numpy as np
+a = np.array([1, 3, 3, 5, 6, 3, 9, 0, 7]).reshape(3, 3)
+for x in a.flat:
+    print(x)
+    print('')
+-------------------------------------------------------------------------------------------------------------------------------
+#zad10
+import numpy as np
+a = np.array([x for x in range(1, 82)]).reshape(9, 9)
+print(a)
+print('')
+b = np.array([x for x in range(1, 82)]).reshape(3, 27)
+print(b)
+print('')
+c = np.array([x for x in range(1, 82)]).reshape(27, 3)
+print(c)
+print('')
+d = np.array([x for x in range(1, 82)]).reshape(1, 81)
+print(d)
+print('')
+e = np.array([x for x in range(1, 82)]).reshape(81, 1)
+print(e)
+print('')
+-------------------------------------------------------------------------------------------------------------------------------
+#zad11
+import numpy as np
+a = np.arange(12)
+print(a)
+print(a.shape)
+print('')
+b1 = a.reshape(3, 4)
+print(b1)
+print(b1.shape)
+b2 = b1.ravel()
+print(b2)
+print(b2.shape)
+print('')
+c1 = a.reshape(4, 3)
+print(c1)
+print(c1.shape)
+c2 = c1.ravel()
+print(c2)
+print(c2.shape)
+print('')
+d1 = a.reshape(2, 6)
+print(d1)
+print(d1.shape)
+d2 = d1.ravel()
+print(d2)
+print(d2.shape)
+print('')
