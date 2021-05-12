@@ -1,0 +1,102 @@
+#zad1
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+plt.plot([x for x in range(1, 21)], [1/x for x in range(1, 21)])
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.legend(title='f(x) = 1/x')
+plt.show()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad2
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+plt.plot([x for x in range(1, 21)], [1/x for x in range(1, 21)], 'g:>', label='f(x) = 1/x')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title('Wykres funkcji f(x) dla x[1, 20]')
+plt.legend()
+plt.show()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad3
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+x = np.arange(0, 30, 0.1)
+y1 = np.sin(x)
+y2 = np.cos(x)
+plt.plot(x, y1, label='sin(x)')
+plt.plot(x, y2, label='cos(x)')
+plt.legend()
+plt.show()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad4
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+x = np.arange(0, 30, 0.1)
+y1 = np.sin(x) + 2
+y2 = np.sin(x*(-1))
+plt.plot(x, y1, label='sin(x)')
+plt.plot(x, y2, label='cos(x)')
+plt.xlabel('x')
+plt.ylabel('sin(x)')
+plt.title('Wykres sin(x), sin(x)')
+plt.legend(loc='center left')
+plt.show()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad5
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('iris.data', delimiter=',', header=None)
+print(df)
+colors = np.random.randint(0, 50, 150)
+scale = np.abs(df[0]-df[1])
+plt.scatter(df[0], df[1], c=colors, s=scale)
+plt.show()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad6
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_excel('imiona.xlsx')
+m1 = df.loc[df['Plec']=='M'].agg({'Liczba': ['sum']})
+k1 = df.loc[df['Plec']=='K'].agg({'Liczba': ['sum']})
+m2 = m1['Liczba'].values[0]
+k2 = k1['Liczba'].values[0]
+print(m2)
+print(k2)
+etykiety = ['dziewczynki', 'chłopcy']
+wartosci = [k2, m2]
+plt.subplot(3, 2, 1)
+plt.bar(etykiety, wartosci)
+
+m3 = df[df['Plec']=='M'].groupby(['Rok']).agg({'Liczba': ['sum']})
+k3 = df[df['Plec']=='K'].groupby(['Rok']).agg({'Liczba': ['sum']})
+plt.subplot(324)
+plt.plot(m3)
+plt.plot(k3)
+
+dz = df.groupby(['Rok']).agg({'Liczba': ['sum']})
+plt.subplot(325)
+dz.plot.bar()
+
+plt.show()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad7
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('zamowienia.csv', delimiter=';')
+x = df.groupby(['Sprzedawca']).size()
+x.plot.pie(autopct='%.f%%', explode=[0.3, 0, 0.5, 0, 0.2, 0, 0, 0.12, 0.01], shadow=True)
+plt.show()
