@@ -1,0 +1,167 @@
+#zad1
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+from mpl_toolkits.mplot3d.axes3d import get_test_data
+
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+
+t = np.linspace(0, 2*np.pi, 100)
+z = t
+x = np.sin(t)
+y = 2 * np.cos(t)
+
+plt.plot(x, y, z, label='Wykres liniowy')
+plt.xlabel('sin(x)')
+plt.ylabel('2*cos(x)')
+plt.legend(loc='upper right')
+plt.show()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad2
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+from mpl_toolkits.mplot3d.axes3d import get_test_data
+
+def randrange(n, vmin, vmax):
+    return (vmax - vmin) * np.random.rand(n) + vmin
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+n = 30
+
+for c, m, zlow, zhigh in [('r', 'o', -50, -25), ('b', '^', -30, -5), ('g', 'p', -18, -5), ('c', 's', -5, 0), ('m', '+', -50, -48)]:
+    xs = randrange(n, 23, 32)
+    ys = randrange(n, 0, 100)
+    zs = randrange(n, zlow, zhigh)
+    ax.scatter(xs, ys, zs, c=c, marker=m)
+
+ax.set_xlabel('oś x')
+ax.set_ylabel('oś y')
+ax.set_zlabel('oś z')
+plt.show()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad3
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+from mpl_toolkits.mplot3d.axes3d import get_test_data
+
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+#generujemy dane
+x = np.arange(-5, 5, 0.25)
+y = np.arange(-5, 5, 0.25)
+x, y = np.meshgrid(x, y)
+r = np.sqrt(x**2 + y**2)
+z = np.sin(r)
+
+# surf = ax.plot_surface(x, y, z, cmap=cm.coolwarm, linewidth=0, antialiased=False)
+# surf = ax.plot_surface(x, y, z, cmap=cm.bwr, linewidth=0, antialiased=False)
+# surf = ax.plot_surface(x, y, z, cmap=cm.magma, linewidth=0, antialiased=False)
+# surf = ax.plot_surface(x, y, z, cmap=cm.viridis, linewidth=0, antialiased=False)
+# surf = ax.plot_surface(x, y, z, cmap=cm.inferno, linewidth=0, antialiased=False)
+surf = ax.plot_surface(x, y, z, cmap=cm.OrRd, linewidth=0, antialiased=False)
+ax.set_zlim(-1.01, 1.01)
+ax.zaxis.set_major_locator(LinearLocator(10))
+ax.zaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+
+fig.colorbar(surf, shrink=0.5, aspect=5)
+plt.show()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad4
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+from mpl_toolkits.mplot3d.axes3d import get_test_data
+
+fig = plt.figure(figsize=(12, 9))
+ax1 = fig.add_subplot(231, projection='3d')
+ax2 = fig.add_subplot(232, projection='3d')
+ax3 = fig.add_subplot(233, projection='3d')
+ax4 = fig.add_subplot(234, projection='3d')
+ax5 = fig.add_subplot(235, projection='3d')
+ax6 = fig.add_subplot(236, projection='3d')
+# ax1 = fig.gca()
+# ax2 = fig.gca()
+# ax3 = fig.gca()
+# ax4 = fig.gca()
+# ax5 = fig.gca()
+# ax6 = fig.gca()
+x = np.arange(-5, 5, 0.25)
+y = np.arange(-5, 5, 0.25)
+x, y = np.meshgrid(x, y)
+r = np.sqrt(x**2 + y**2)
+z = np.sin(r)
+
+surf1 = ax1.plot_surface(x, y, z, cmap=cm.coolwarm, linewidth=0, antialiased=False)
+surf2 = ax2.plot_surface(x, y, z, cmap=cm.bwr, linewidth=0, antialiased=False)
+surf3 = ax3.plot_surface(x, y, z, cmap=cm.magma, linewidth=0, antialiased=False)
+surf4 = ax4.plot_surface(x, y, z, cmap=cm.viridis, linewidth=0, antialiased=False)
+surf5 = ax5.plot_surface(x, y, z, cmap=cm.inferno, linewidth=0, antialiased=False)
+surf6 = ax6.plot_surface(x, y, z, cmap=cm.OrRd, linewidth=0, antialiased=False)
+ax1.set_zlim(-1.01, 1.01)
+ax1.zaxis.set_major_locator(LinearLocator(10))
+ax1.zaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+ax2.set_zlim(-1.01, 1.01)
+ax2.zaxis.set_major_locator(LinearLocator(10))
+ax2.zaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+ax3.set_zlim(-1.01, 1.01)
+ax3.zaxis.set_major_locator(LinearLocator(10))
+ax3.zaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+ax4.set_zlim(-1.01, 1.01)
+ax4.zaxis.set_major_locator(LinearLocator(10))
+ax4.zaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+ax5.set_zlim(-1.01, 1.01)
+ax5.zaxis.set_major_locator(LinearLocator(10))
+ax5.zaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+ax6.set_zlim(-1.01, 1.01)
+ax6.zaxis.set_major_locator(LinearLocator(10))
+ax6.zaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+
+# fig.colorbar(surf1, shrink=0.5, aspect=5)
+# fig.colorbar(surf2, shrink=0.5, aspect=5)
+# fig.colorbar(surf3, shrink=0.5, aspect=5)
+# fig.colorbar(surf4, shrink=0.5, aspect=5)
+# fig.colorbar(surf5, shrink=0.5, aspect=5)
+# fig.colorbar(surf6, shrink=0.5, aspect=5)
+plt.show()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad5
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+from mpl_toolkits.mplot3d.axes3d import get_test_data
+
+fig = plt.figure(figsize=(12, 5))
+ax1 = fig.add_subplot(121, projection='3d')
+ax2 = fig.add_subplot(122, projection='3d')
+
+x = np.arange(-5, 5, 0.1)
+y = np.arange(-5, 5, 0.1)
+x, y = np.meshgrid(x, y)
+r = np.sqrt(x**2 + y**2)
+z = np.sin(r)
+
+surf1 = ax1.plot_surface(x, y, z, cmap=cm.coolwarm, linewidth=0, antialiased=False)
+ax1.set_zlim(-1.01, 1.01)
+ax1.zaxis.set_major_locator(LinearLocator(10))
+ax1.zaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+surf2 = ax2.plot_surface(x, y, z, cmap=cm.coolwarm, linewidth=0, antialiased=True)
+ax2.set_zlim(-1.01, 1.01)
+ax2.zaxis.set_major_locator(LinearLocator(10))
+ax2.zaxis.set_major_formatter(FormatStrFormatter('%.2f'))
+
+fig.colorbar(surf1, shrink=0.5, aspect=5)
+plt.show()
