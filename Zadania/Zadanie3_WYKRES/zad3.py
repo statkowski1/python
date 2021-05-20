@@ -14,6 +14,7 @@ plt.bar(nazwa, wartosci1, width=0.25, label='B', color='#AFAC9E')
 plt.bar(nazwa+0.25, wartosci2, width=0.25, label='C', color='#BBC38F')
 plt.bar(nazwa+0.5, wartosci3, width=0.25, label='A', color='#A25D75')
 plt.xticks([0.25, 1.25, 2.25, 3.25, 4.25], [0, 1, 2, 3, 4])
+plt.legend()
 plt.grid()
 
 plt.show()
