@@ -1,0 +1,50 @@
+#zad1
+import pandas as pd
+
+df = pd.read_excel('imiona.xlsx')
+print(df)
+print(df.dtypes)
+-------------------------------------------------------------------------------------------------------------------------------
+#zad2
+import pandas as pd
+
+df = pd.read_excel('imiona.xlsx')
+print(df)
+print(df.dtypes)
+#punkt 1
+print(df.loc[df['Liczba']<1000])
+#punkt 2
+print(df.loc[df['Imie']=='SEBASTIAN'])
+#punkt 3
+print(df.groupby(['Rok']).agg({'Liczba':['sum']}))
+#punkt 4
+print(df.loc[(df['Rok']>=2005) & (df['Rok']<=2010)].agg({'Liczba':['sum']}))
+#punkt 5
+print(df.loc[(df['Rok']==2000) & (df['Plec']=='M')].agg({'Liczba':['sum']}))
+#punkt 6
+print(df.sort_values('Liczba', ascending=False).groupby(['Rok', 'Plec']).nth(0))
+#punkt 7
+print('Chłopiec')
+print(df[df['Plec'] == 'M'].groupby(['Imie']).agg({'Liczba':['sum']}).sort_values(('Liczba','sum'), ascending=False).iloc[0])
+print('Dziewczynka')
+print(df[df['Plec'] == 'K'].groupby(['Imie']).agg({'Liczba': ['sum']}).sort_values(('Liczba', 'sum'), ascending=False).iloc[0])
+-------------------------------------------------------------------------------------------------------------------------------
+#zad3
+df = pd.read_csv('zamowienia.csv', sep=';')
+print(df)
+#punkt 1
+print(df['Sprzedawca'].unique())
+#punkt 2
+print(df.sort_values(('Utarg'), ascending=False).head(5))
+#punkt 3
+print(df.groupby(['Sprzedawca']).size())
+#punkt 4
+print(df.groupby(['Kraj']).agg({'Utarg': ['sum']}))
+#punkt 5
+print(df[((df['Data zamowienia'] >= '2005-01-01') & (df['Data zamowienia'] <= '2005-12-31') & (df['Kraj'] == 'Polska'))].agg({'Utarg': ['sum']}))
+#punkt 6
+print(df[((df['Data zamowienia'] >= '2004-01-01') & (df['Data zamowienia'] <= '2004-12-31'))].agg({'Utarg': ['mean']}))
+#punkt 7
+rok_2004 = df[((df['Data zamowienia'] >= '2004-01-01') & (df['Data zamowienia'] <= '2004-12-31'))]
+rok_2004.to_csv('zamowienia_2004.csv', sep=';')
+rok_2005 = df[((df['Data zamowienia'] >= '2005-01-01') & (df['Data zamowienia'] <= '2005-12-31'))]
