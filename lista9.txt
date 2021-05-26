@@ -12,6 +12,10 @@ plt.legend()
 plt.show()
 -------------------------------------------------------------------------------------------------------------------------------
 #zad2
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
 df = pd.read_excel('imiona.xlsx')
 print(df)
 grupa = df.groupby(['Plec']).agg({'Liczba': ['sum']})
@@ -22,6 +26,10 @@ plt.legend()
 plt.show()
 -------------------------------------------------------------------------------------------------------------------------------
 #zad3
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
 df = pd.read_excel('imiona.xlsx')
 print(df)
 grupa = df[(df['Rok'] > 2012)].groupby(['Plec']).agg({'Liczba': ['sum']})
@@ -31,6 +39,10 @@ plt.legend(loc='upper left')
 plt.show()
 -------------------------------------------------------------------------------------------------------------------------------
 #zad4
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
 df = pd.read_csv('zamowienia.csv', sep=';')
 print(df)
 grupa = df.groupby(['Sprzedawca']).size()
