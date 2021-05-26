@@ -30,6 +30,8 @@ print('Dziewczynka')
 print(df[df['Plec'] == 'K'].groupby(['Imie']).agg({'Liczba': ['sum']}).sort_values(('Liczba', 'sum'), ascending=False).iloc[0])
 -------------------------------------------------------------------------------------------------------------------------------
 #zad3
+import pandas as pd
+
 df = pd.read_csv('zamowienia.csv', sep=';')
 print(df)
 #punkt 1
