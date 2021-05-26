@@ -1,0 +1,40 @@
+#zad1
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_excel('imiona.xlsx')
+print(df)
+grupa = df.groupby(['Rok']).agg({'Liczba': ['sum']})
+grupa.plot()
+plt.title('Wykres urodzonych dzieci dla każdego roku')
+plt.legend()
+plt.show()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad2
+df = pd.read_excel('imiona.xlsx')
+print(df)
+grupa = df.groupby(['Plec']).agg({'Liczba': ['sum']})
+grupa.plot.bar()
+plt.xticks(rotation=0)
+plt.title('Liczba urodzonych chłopców i dziewczynek')
+plt.legend()
+plt.show()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad3
+df = pd.read_excel('imiona.xlsx')
+print(df)
+grupa = df[(df['Rok'] > 2012)].groupby(['Plec']).agg({'Liczba': ['sum']})
+print(grupa)
+grupa.plot.pie(subplots=True, autopct='%.2f %%', fontsize=20, colors=['pink', 'blue'])
+plt.legend(loc='upper left')
+plt.show()
+-------------------------------------------------------------------------------------------------------------------------------
+#zad4
+df = pd.read_csv('zamowienia.csv', sep=';')
+print(df)
+grupa = df.groupby(['Sprzedawca']).size()
+plt.figure(figsize=(6, 9))
+grupa.plot.bar()
+plt.legend(loc='upper left')
+plt.show()
